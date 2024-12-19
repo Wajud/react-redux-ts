@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useAppDispatch } from "../store/store";
-import { addPerson } from "../store/features/personSlice";
+import { addPerson, createPerson } from "../store/features/personSlice";
 
 const Add = () => {
   const name = useRef<string>("");
@@ -9,7 +9,7 @@ const Add = () => {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log(name.current);
-    dispatch(addPerson({ name: name.current }));
+    dispatch(createPerson(name.current));
   };
   return (
     <form>
